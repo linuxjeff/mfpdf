@@ -22,6 +22,7 @@
 #       - Criado cabeçalho
 #       - Criado variáveis para arquivo e diretório
 #       - Feito a organização das variáveis
+#       - Criado variáveis que recolhe o nome do sistema
 #
 # Licença: MIT.
 #
@@ -29,3 +30,4 @@
 ### Variáveis ###
 NOMEPADRAODOARQUIVO="documento.pdf"
 NOMEDODIRETORIO="~/Downloads"
+NOMEDOSO=`egrep '^NAME' /etc/os-release | cut -d "\"" -f 2`
