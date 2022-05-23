@@ -21,8 +21,11 @@
 #       - Versão inicial
 #       - Criado cabeçalho
 #       - Criado variáveis para arquivo e diretório
+#       - Feito a organização das variáveis
 #
 # Licença: MIT.
 #
+
+### Variáveis ###
 NOMEPADRAODOARQUIVO="documento.pdf"
 NOMEDODIRETORIO="~/Downloads"
