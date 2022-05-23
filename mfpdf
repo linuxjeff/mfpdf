@@ -20,6 +20,9 @@
 #    v0.0.1 2022-05-23, Jefferson Santana
 #       - Versão inicial
 #       - Criado cabeçalho
+#       - Criado variáveis para arquivo e diretório
 #
 # Licença: MIT.
 #
+NOMEPADRAODOARQUIVO="documento.pdf"
+NOMEDODIRETORIO="~/Downloads"
