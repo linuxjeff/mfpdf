@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+#
+# mfpdf - Modifica arquivos pdf
+#
+# Site      : https://github.com/linuxjeff
+# Autor     : Jefferson Santana <computadores.rp@gmail.com>
+#
+#  -------------------------------------------------------------
+#   O programa modifica arquivos pdf para png e txt. O programa
+#   é usado para facilitar a alteração de boletos para outros
+#   formatos.
+#
+#   Exemplos:
+#
+#  -------------------------------------------------------------
+#
+#
+# Histórico:
+#
+#    v0.0.1 2022-05-23, Jefferson Santana
+#       - Versão inicial
+#       - Criado cabeçalho
+#
+# Licença: MIT.
+#
