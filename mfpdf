@@ -23,6 +23,8 @@
 #       - Criado variáveis para arquivo e diretório
 #       - Feito a organização das variáveis
 #       - Criado variáveis que recolhe o nome do sistema
+#    v0.0.2 2022-06-07, Jefferson Santana
+#       - Criado a variáveis que verifica se o popller-utils esta instalado
 #
 # Licença: MIT.
 #
@@ -31,3 +33,4 @@
 NOMEPADRAODOARQUIVO="documento.pdf"
 NOMEDODIRETORIO="~/Downloads"
 NOMEDOSO=`egrep '^NAME' /etc/os-release | cut -d "\"" -f 2`
+VERIFICANDOPOPLLER=`apt search '^poppler-utils' 2>/dev/null | egrep '\[installed\]$' | cut -d ' ' -f 4`
