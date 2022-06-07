@@ -27,6 +27,8 @@
 #       - Criado a variáveis que verifica se o popller-utils esta instalado
 #       - Modificado permissões do arquivo mfpdf para execução
 #       - Criado a variáveis que guarda o sistema esperado
+#       - Criado a variáveis que guarda a comparação de instalado
+#       - Criado o if para testar se o pacote popler-utils esta instalado
 #
 # Licença: MIT.
 #
@@ -38,3 +40,16 @@ NOMEDOSO=`egrep '^NAME' /etc/os-release | cut -d "\"" -f 2`
 OSESPERADO="Debian GNU/Linux"
 VERIFICANDOPOPLLER=`apt search '^poppler-utils' 2>/dev/null | egrep '\[installed\]$' | cut -d ' ' -f 4`
 POPLLERINSTALADO="[installed]"
+
+# O if para o pacote popller-utils
+if test "$NOMEDOSO" = "$OSESPERADO"
+  then
+    if test "$VERIFICANDOPOPLLER" = "$POPLLERINSTALADO"
+      then
+        echo "Continuando..."
+      else
+        echo "O programa precisa do pacote popller-utils instalado."
+    fi
+  else
+    echo "Este programa só funciona no Debian até o momento." ; exit 0
+fi
