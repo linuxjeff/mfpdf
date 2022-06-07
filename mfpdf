@@ -37,3 +37,4 @@ NOMEDODIRETORIO="~/Downloads"
 NOMEDOSO=`egrep '^NAME' /etc/os-release | cut -d "\"" -f 2`
 OSESPERADO="Debian GNU/Linux"
 VERIFICANDOPOPLLER=`apt search '^poppler-utils' 2>/dev/null | egrep '\[installed\]$' | cut -d ' ' -f 4`
+POPLLERINSTALADO="[installed]"
