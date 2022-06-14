@@ -29,6 +29,7 @@
 #       - Criado a variáveis que guarda o sistema esperado
 #       - Criado a variáveis que guarda a comparação de instalado
 #       - Criado o if para testar se o pacote popler-utils esta instalado
+#    v0.0.3 2022-06-14, Jefferson Santana
 #
 # Licença: MIT.
 #
@@ -51,5 +52,5 @@ if test "$NOMEDOSO" = "$OSESPERADO"
         echo "O programa precisa do pacote popller-utils instalado."
     fi
   else
-    echo "Este programa só funciona no Debian até o momento." ; exit 0
+    echo "Este programa só funciona no Debian até o momento."
 fi
