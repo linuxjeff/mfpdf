@@ -20,18 +20,19 @@
 #    v0.0.1 2022-05-23, Jefferson Santana
 #       - Versão inicial
 #       - Criado cabeçalho
-#       - Criado variáveis para arquivo e diretório
+#       - Criada variáveis para arquivo e diretório
 #       - Feito a organização das variáveis
-#       - Criado variáveis que recolhe o nome do sistema
+#       - Criada variáveis que recolhe o nome do sistema
 #    v0.0.2 2022-06-07, Jefferson Santana
-#       - Criado a variáveis que verifica se o popller-utils esta instalado
+#       - Criada variáveis que verifica se o popller-utils esta instalado
 #       - Modificado permissões do arquivo mfpdf para execução
-#       - Criado a variáveis que guarda o sistema esperado
-#       - Criado a variáveis que guarda a comparação de instalado
-#       - Criado o if para testar se o pacote popler-utils esta instalado
+#       - Criada variáveis que guarda o sistema esperado
+#       - Criada variáveis que guarda a comparação de instalado
+#       - Criado if para testar se o pacote popler-utils esta instalado
 #    v0.0.3 2022-06-14, Jefferson Santana
-#       - Criado a variável que recebe a versão
+#       - Criada variável que recebe a versão
 #       - Criada variável que recebe o mensagem de ajuda
+#       - Alterada gramática do cabeçalho
 #
 # Licença: MIT.
 #
