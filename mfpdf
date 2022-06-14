@@ -30,6 +30,7 @@
 #       - Criado a variáveis que guarda a comparação de instalado
 #       - Criado o if para testar se o pacote popler-utils esta instalado
 #    v0.0.3 2022-06-14, Jefferson Santana
+#       - Criado a variável que recebe a versão
 #
 # Licença: MIT.
 #
@@ -41,6 +42,7 @@ NOMEDOSO=`egrep '^NAME' /etc/os-release | cut -d "\"" -f 2`
 OSESPERADO="Debian GNU/Linux"
 VERIFICANDOPOPLLER=`apt search '^poppler-utils' 2>/dev/null | egrep '\[installed\]$' | cut -d ' ' -f 4`
 POPLLERINSTALADO="[installed]"
+VERSAO=`egrep '^#    v' mfpdf | tail -n 1 | cut -d " " -f 5`
 
 # O if para o pacote popller-utils
 if test "$NOMEDOSO" = "$OSESPERADO"
