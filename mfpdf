@@ -31,6 +31,7 @@
 #       - Criado o if para testar se o pacote popler-utils esta instalado
 #    v0.0.3 2022-06-14, Jefferson Santana
 #       - Criado a variável que recebe a versão
+#       - Criada variável que recebe o mensagem de ajuda
 #
 # Licença: MIT.
 #
@@ -43,6 +44,13 @@ OSESPERADO="Debian GNU/Linux"
 VERIFICANDOPOPLLER=`apt search '^poppler-utils' 2>/dev/null | egrep '\[installed\]$' | cut -d ' ' -f 4`
 POPLLERINSTALADO="[installed]"
 VERSAO=`egrep '^#    v' mfpdf | tail -n 1 | cut -d " " -f 5`
+MENSAGEMAJUDA="
+Uso: $(basename "$0") [-h|-m|-r|-v]
+-h, --help    Mostra esta mensagem e sai
+-m, --modify  Modifica o arquivo presente no diretório
+-r, --remove  Remove os arquivos presentes no diretório
+-v, --version Mostra a versão e sai
+"
 
 # O if para o pacote popller-utils
 if test "$NOMEDOSO" = "$OSESPERADO"
