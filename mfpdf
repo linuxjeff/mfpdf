@@ -33,6 +33,8 @@
 #       - Criada variável que recebe a versão
 #       - Criada variável que recebe o mensagem de ajuda
 #       - Alterada gramática do cabeçalho
+#       - Criado case que suporta as opção o if para o pacote popller-utils foi
+#         movido para dentro do case
 #
 # Licença: MIT.
 #
@@ -53,15 +55,41 @@ Uso: $(basename "$0") [-h|-m|-r|-v]
 -v, --version Mostra a versão e sai
 "
 
-# O if para o pacote popller-utils
-if test "$NOMEDOSO" = "$OSESPERADO"
-  then
-    if test "$VERIFICANDOPOPLLER" = "$POPLLERINSTALADO"
-      then
-        echo "Continuando..."
-      else
-        echo "O programa precisa do pacote popller-utils instalado."
-    fi
-  else
-    echo "Este programa só funciona no Debian até o momento."
-fi
+# Case para as opções
+case "$1" in
+    -h | --help   )
+      echo "$MENSAGEMAJUDA"
+      exit 0
+    ;;
+    -m | --modify )
+      echo "teste de opção -m ou --modify!"
+      # O if para o pacote popller-utils
+      if test "$NOMEDOSO" = "$OSESPERADO"
+        then
+          if test "$VERIFICANDOPOPLLER" = "$POPLLERINSTALADO"
+            then
+              echo "Continuando..."
+            else
+              echo "O programa precisa do pacote popller-utils instalado."
+          fi
+        else
+          echo "Este programa só funciona no Debian até o momento."
+      fi
+    ;;
+    -r | --remove )
+      echo "Teste de opção -r ou --remove!"
+    ;;
+    -v | --version)
+      echo -n $(basename "$0")
+      echo " $VERSAO"
+    ;;
+    *             )
+      if test -n "$1"
+         then
+          echo "Opção inválida "$1""
+          exit 1
+         else
+          echo "$MENSAGEMAJUDA"
+      fi
+    ;;
+esac
