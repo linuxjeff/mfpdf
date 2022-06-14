@@ -35,11 +35,15 @@
 #       - Alterada gramática do cabeçalho
 #       - Criado case que suporta as opção o if para o pacote popller-utils foi
 #         movido para dentro do case
+#       - Delimitado os espaços no código.
 #
 # Licença: MIT.
 #
 
-### Variáveis ###
+################################################################################
+#                            Variáveis                                         #
+################################################################################
+
 NOMEPADRAODOARQUIVO="documento.pdf"
 NOMEDODIRETORIO="~/Downloads"
 NOMEDOSO=`egrep '^NAME' /etc/os-release | cut -d "\"" -f 2`
@@ -54,6 +58,15 @@ Uso: $(basename "$0") [-h|-m|-r|-v]
 -r, --remove  Remove os arquivos presentes no diretório
 -v, --version Mostra a versão e sai
 "
+################################################################################
+#                            Funções                                           #
+################################################################################
+
+
+
+################################################################################
+#                          Programa Principal                                  #
+################################################################################
 
 # Case para as opções
 case "$1" in
