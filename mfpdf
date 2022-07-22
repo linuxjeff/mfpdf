@@ -61,7 +61,20 @@ Uso: $(basename "$0") [-h|-m|-r|-v]
 ################################################################################
 #                            Funções                                           #
 ################################################################################
-
+function TestePoppler(parameter) {
+  # O if para o pacote poppler-utils
+  if test "$NOMEDOSO" = "$OSESPERADO"
+    then
+      if test "$VERIFICANDOPOPLLER" = "$POPLLERINSTALADO"
+        then
+          echo "Continuando..."
+        else
+          echo "O programa precisa do pacote popller-utils instalado."
+      fi
+    else
+      echo "Este programa só funciona no Debian até o momento."
+  fi
+}
 
 
 ################################################################################
@@ -76,18 +89,7 @@ case "$1" in
     ;;
     -m | --modify )
       echo "teste de opção -m ou --modify!"
-      # O if para o pacote popller-utils
-      if test "$NOMEDOSO" = "$OSESPERADO"
-        then
-          if test "$VERIFICANDOPOPLLER" = "$POPLLERINSTALADO"
-            then
-              echo "Continuando..."
-            else
-              echo "O programa precisa do pacote popller-utils instalado."
-          fi
-        else
-          echo "Este programa só funciona no Debian até o momento."
-      fi
+      TestePoppler
     ;;
     -r | --remove )
       echo "Teste de opção -r ou --remove!"
