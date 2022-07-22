@@ -38,6 +38,7 @@
 #       - Delimitado os espaços no código.
 #    v0.0.3 2022-07-22, Jefferson Santana
 #       - Mudando o teste do poppler-utils para função TestePoppler
+#       - Criado a função ModificadoPDF
 # Licença: MIT.
 #
 
@@ -46,7 +47,7 @@
 ################################################################################
 
 NOMEPADRAODOARQUIVO="documento.pdf"
-NOMEDODIRETORIO="~/Downloads"
+NOMEDODIRETORIO="$HOME/Downloads"
 NOMEDOSO=`egrep '^NAME' /etc/os-release | cut -d "\"" -f 2`
 OSESPERADO="Debian GNU/Linux"
 VERIFICANDOPOPLLER=`apt search '^poppler-utils' 2>/dev/null | egrep '\[installed\]$' | cut -d ' ' -f 4`
@@ -79,7 +80,29 @@ function TestePoppler() {
   fi
 }
 
-
+# Função para modificar o arquivo
+function ModificadoPDF() {
+  if test -f "$NOMEDODIRETORIO/$NOMEPADRAODOARQUIVO"; then
+    # Modificando o pdf para png.
+    pdftoppm \
+    -png "$NOMEDODIRETORIO/$NOMEPADRAODOARQUIVO" "$NOMEDODIRETORIO/documento"
+    # Modificando o pdf para txt.
+    pdftotext \
+    "$NOMEDODIRETORIO/$NOMEPADRAODOARQUIVO" "$NOMEDODIRETORIO/documento"
+    # Notificando usuário da criação
+    echo "Foi criado o png do pdf"
+    # Extrai o código de barras.
+    egrep \
+    '^[0-9]{5}\.[0-9]{5}\ [0-9]{5}\.[0-9]{6}\ [0-9]{5}\.[0-9]{6}\ [0-9]\ [0-9]{14}' \
+    "$NOMEDODIRETORIO/documento"
+  else
+    # Texto de alerta
+    echo "Verifique se o arquivo existe e esta nomeado corretamente.
+          Verifique se o arquivo esta no diretório correto.
+          Nome correto do arquivo: $NOMEPADRAODOARQUIVO
+          Diretório onde deve estar o arquivo: $NOMEDODIRETORIO"
+  fi
+}
 
 ################################################################################
 #                          Programa Principal                                  #
@@ -94,6 +117,7 @@ case "$1" in
     -m | --modify )
       echo "teste de opção -m ou --modify!"
       TestePoppler
+      ModificadoPDF
     ;;
     -r | --remove )
       echo "Teste de opção -r ou --remove!"
