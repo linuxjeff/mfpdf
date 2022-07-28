@@ -39,6 +39,8 @@
 #    v0.0.3 2022-07-22, Jefferson Santana
 #       - Mudando o teste do poppler-utils para função TestePoppler
 #       - Criado a função ModificadoPDF
+#    v0.0.4 2022-07-28, Jefferson Santana
+#       - Criado função que remove arquivos
 # Licença: MIT.
 #
 
@@ -48,6 +50,7 @@
 
 NOMEPADRAODOARQUIVO="documento.pdf"
 NOMEDODIRETORIO="$HOME/Downloads"
+NOMESEMEXTENSAO=`echo "$NOMEPADRAODOARQUIVO" | cut -d '.' -f 1`
 NOMEDOSO=`egrep '^NAME' /etc/os-release | cut -d "\"" -f 2`
 OSESPERADO="Debian GNU/Linux"
 VERIFICANDOPOPLLER=`apt search '^poppler-utils' 2>/dev/null | egrep '\[installed\]$' | cut -d ' ' -f 4`
@@ -104,6 +107,31 @@ function ModificadoPDF() {
   fi
 }
 
+# Função para remover pdf, png e txt.
+function RemoverPDF() {
+  # Remove arquivo.pdf.
+  if  test -f $NOMEDODIRETORIO"/"$NOMEPADRAODOARQUIVO ; then
+     rm -v "$NOMEDODIRETORIO"/"$NOMEPADRAODOARQUIVO"
+  else
+     echo "Arquivo.pdf não existe ou já foi removido."
+  fi
+
+  # Remove arquivo.txt.
+  if  test -f "$NOMEDODIRETORIO"/"$NOMESEMEXTENSAO" ; then
+     rm -v "$NOMEDODIRETORIO"/"$NOMESEMEXTENSAO"
+  else
+     echo "Arquivo.txt não existe ou já foi removido."
+  fi
+
+  # Remove arquivo-1.png.
+  if  test -f "$NOMEDODIRETORIO"/"$NOMESEMEXTENSAO"\-1.png ; then
+     rm -v "$NOMEDODIRETORIO"/"$NOMESEMEXTENSAO"\-1.png
+  else
+     echo "Arquivo-1.png não existe ou já foi removido."
+  fi
+
+}
+
 ################################################################################
 #                          Programa Principal                                  #
 ################################################################################
@@ -115,12 +143,11 @@ case "$1" in
       exit 0
     ;;
     -m | --modify )
-      echo "teste de opção -m ou --modify!"
       TestePoppler
       ModificadoPDF
     ;;
     -r | --remove )
-      echo "Teste de opção -r ou --remove!"
+      RemoverPDF
     ;;
     -v | --version)
       echo -n $(basename "$0")
