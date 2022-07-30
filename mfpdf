@@ -41,6 +41,8 @@
 #       - Criado a função ModificadoPDF
 #    v0.0.4 2022-07-28, Jefferson Santana
 #       - Criado função que remove arquivos
+#    v0.0.5 2022-07-30, Jefferson Santana
+#       - Resolvido problema do grep que recolhe a versão
 # Licença: MIT.
 #
 
