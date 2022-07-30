@@ -55,7 +55,7 @@ NOMEDOSO=`egrep '^NAME' /etc/os-release | cut -d "\"" -f 2`
 OSESPERADO="Debian GNU/Linux"
 VERIFICANDOPOPLLER=`apt search '^poppler-utils' 2>/dev/null | egrep '\[installed\]$' | cut -d ' ' -f 4`
 POPLLERINSTALADO="[installed]"
-VERSAO=`egrep '^#    v' mfpdf | tail -n 1 | cut -d " " -f 5`
+VERSAO=`egrep '^#    v' "$0" | tail -n 1 | cut -d " " -f 5`
 MENSAGEMAJUDA="
 Uso: $(basename "$0") [-h|-m|-r|-v]
 -h, --help    Mostra esta mensagem e sai
